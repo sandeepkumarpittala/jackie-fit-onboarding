@@ -5,19 +5,19 @@ export default function Summary() {
   const { state } = useLocation();
 
   const answers = state?.answers || {};
-  <pre className="bg-gray-100 p-4 rounded mt-4">
-  {JSON.stringify(answers, null, 2)}
-</pre>
+  
 
-  return (
+ return (
 
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+  <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
 
-      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xl">
+    <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xl">
 
-        <h1 className="text-3xl font-bold mb-8">
-          Your Fit Profile
-        </h1>
+      <h1 className="text-3xl font-bold mb-8">
+        Your Fit Profile
+      </h1>
+
+      
 
         <div className="space-y-4">
 
