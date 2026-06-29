@@ -9,104 +9,217 @@ export default function Summary() {
 
  return (
 
-  <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+<div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-gray-200 flex items-center justify-center p-6">
 
-    <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xl">
+<div className="w-full max-w-3xl bg-white rounded-[32px] shadow-2xl border border-gray-200 p-10">
 
-      <h1 className="text-3xl font-bold mb-8">
-        Your Fit Profile
-      </h1>
+<div className="text-center">
 
-      
+<div className="inline-flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full mb-5">
 
-        <div className="space-y-4">
-
-          <p>
-            <strong>Height:</strong>{" "}
-            {answers[1] || "-"}
-          </p>
-
-          <p>
-            <strong>Weight:</strong>{" "}
-            {answers[2] || "Skipped"}
-          </p>
-
-          <p>
-            <strong>Waist:</strong>{" "}
-            {answers[3] || "-"}
-          </p>
-
-          <p>
-            <strong>Hip:</strong>{" "}
-            {answers[4] || "-"}
-          </p>
-
-          <p>
-            <strong>Waist Fit:</strong>{" "}
-            {answers[5] || "-"}
-          </p>
-
-          <p>
-            <strong>Rise:</strong>{" "}
-            {answers[6] || "-"}
-          </p>
-
-          <p>
-            <strong>Thigh Fit:</strong>{" "}
-            {answers[7] || "-"}
-          </p>
-
-          <div>
-
-  <strong>Brands</strong>
-
-  {(answers[8] || []).length > 0 ? (
-
-    <ul className="list-disc ml-6 mt-2">
-
-      {answers[8].map((brand) => (
-
-        <li key={brand}>
-
-          {brand} — Size {answers[9]?.[brand] || "-"}
-
-        </li>
-
-      ))}
-
-    </ul>
-
-  ) : (
-
-    <p className="text-gray-500 mt-2">
-      None Selected
-    </p>
-
-  )}
+🤖 Jackie AI Analysis
 
 </div>
 
-          <p>
-            <strong>Biggest Fit Issue:</strong>{" "}
-            {answers[10] || "-"}
-          </p>
+<h1 className="text-5xl font-extrabold text-gray-900">
 
-        </div>
+Your Fit Profile
 
-        <button
-          onClick={() =>
-            window.location.href =
-              "https://jackie-jeans.vercel.app/"
-          }
-          className="mt-8 w-full bg-black text-white rounded-xl py-4 text-lg hover:bg-gray-900 transition"
-        >
-          Continue to Jackie Jeans →
-        </button>
+</h1>
 
-      </div>
+<p className="text-gray-500 mt-3">
 
-    </div>
+Generated using AI Voice Fit Assistant
 
-  );
+</p>
+
+</div>
+
+<div className="grid md:grid-cols-2 gap-5 mt-12">
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">📏 Height</h3>
+
+<p className="text-3xl font-bold mt-2">
+
+{answers[1] || "-"}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">⚖ Weight</h3>
+
+<p className="text-3xl font-bold mt-2">
+
+{answers[2] || "Skipped"}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">👖 Waist</h3>
+
+<p className="text-3xl font-bold mt-2">
+
+{answers[3]}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">📐 Hip</h3>
+
+<p className="text-3xl font-bold mt-2">
+
+{answers[4]}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">
+
+✨ Waist Fit
+
+</h3>
+
+<p className="text-2xl font-bold mt-2">
+
+{answers[5]}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">
+
+⬆ Rise
+
+</h3>
+
+<p className="text-2xl font-bold mt-2">
+
+{answers[6]}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">
+
+🦵 Thigh Fit
+
+</h3>
+
+<p className="text-2xl font-bold mt-2">
+
+{answers[7]}
+
+</p>
+
+</div>
+
+<div className="bg-gray-50 rounded-2xl p-5">
+
+<h3 className="font-semibold text-gray-500">
+
+⚠ Biggest Issue
+
+</h3>
+
+<p className="text-2xl font-bold mt-2">
+
+{answers[10]}
+
+</p>
+
+</div>
+
+</div>
+
+<div className="mt-10 bg-gray-50 rounded-3xl p-7">
+
+<h2 className="text-2xl font-bold mb-5">
+
+👖 Previous Denim Brands
+
+</h2>
+
+{(answers[8] || []).length > 0 ? (
+
+<div className="space-y-3">
+
+{answers[8].map((brand)=>(
+
+<div
+key={brand}
+className="flex justify-between bg-white rounded-xl p-4 shadow-sm"
+>
+
+<span className="font-semibold">
+
+{brand}
+
+</span>
+
+<span>
+
+Size {answers[9]?.[brand]}
+
+</span>
+
+</div>
+
+))}
+
+</div>
+
+):( 
+
+<p className="text-gray-500">
+
+No previous brands selected.
+
+</p>
+
+)}
+
+</div>
+
+<button
+
+onClick={()=>
+
+window.location.href="https://jackie-jeans.vercel.app/"
+
+}
+
+className="mt-10 w-full bg-black hover:bg-gray-900 text-white py-5 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-[1.01]"
+
+>
+
+Continue to Jackie Jeans →
+
+</button>
+
+</div>
+
+</div>
+
+);
 
 }

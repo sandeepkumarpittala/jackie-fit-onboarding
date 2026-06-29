@@ -290,89 +290,113 @@ export default function VoiceQuiz() {
 
   setStatus("Press the microphone to answer.");
 }
+    
+
     return (
+  <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-gray-200 flex justify-center items-center p-6">
 
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
+    <div className="w-full max-w-3xl">
 
-      <div className="w-full max-w-xl">
+      <AIHeader />
 
-        <AIHeader />
+      <div className="bg-white rounded-[32px] shadow-2xl border border-gray-200 p-10">
 
-        <ProgressBar
-          current={currentQuestion + 1}
-          total={questions.length}
-        />
+        <div className="mb-8">
 
-        <div className="bg-white rounded-3xl shadow-xl mt-6 p-8">
+          <div className="flex justify-between text-sm text-gray-500 mb-3">
+            <span>
+              Question {currentQuestion + 1}
+            </span>
 
-          <div className="text-center">
+            <span>
+              {questions.length} Questions
+            </span>
+          </div>
 
-            <p className="text-gray-500 text-sm">
-              Question {currentQuestion + 1} of {questions.length}
+          <ProgressBar
+            current={currentQuestion + 1}
+            total={questions.length}
+          />
+
+        </div>
+
+        <div className="text-center">
+
+          <div className="inline-flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full mb-6">
+
+            🤖 Jackie AI
+
+          </div>
+
+          <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+
+            {question.question}
+
+          </h2>
+
+          {question.optional && (
+
+            <p className="mt-3 text-green-600 font-medium">
+
+              Optional — You may say "Skip"
+
             </p>
-
-            <h2 className="text-3xl font-bold mt-3">
-              {question.question}
-            </h2>
-
-            {question.optional && (
-              <p className="text-green-600 mt-2">
-                Optional — You may say "Skip"
-              </p>
-            )}
-
-          </div>
-
-          <div className="mt-10">
-
-            <VoiceMic
-              listening={listening}
-              onClick={startListening}
-            />
-
-          </div>
-
-          <StatusCard
-            status={status}
-          />
-
-          <AnswerBubble
-            answer={lastAnswer}
-          />
-
-          {brandQueue.length > 0 && currentQuestion >= 7 && (
-
-            <div className="mt-8 bg-gray-50 rounded-xl p-5">
-
-              <h3 className="font-semibold mb-4">
-                Selected Brands
-              </h3>
-
-              <div className="flex flex-wrap gap-2">
-
-                {brandQueue.map((brand) => (
-
-                  <span
-                    key={brand}
-                    className="bg-black text-white px-3 py-2 rounded-full text-sm"
-                  >
-                    {brand}
-                  </span>
-
-                ))}
-
-              </div>
-
-            </div>
 
           )}
 
         </div>
 
+        <div className="my-12 flex justify-center">
+
+          <VoiceMic
+            listening={listening}
+            onClick={startListening}
+          />
+
+        </div>
+
+        <StatusCard status={status} />
+
+        <div className="mt-6">
+
+          <AnswerBubble answer={lastAnswer} />
+
+        </div>
+
+        {brandQueue.length > 0 && currentQuestion >= 7 && (
+
+          <div className="mt-8 rounded-2xl bg-gray-50 border border-gray-200 p-6">
+
+            <h3 className="font-bold text-lg mb-4">
+
+              Previous Denim Brands
+
+            </h3>
+
+            <div className="flex flex-wrap gap-3">
+
+              {brandQueue.map((brand) => (
+
+                <span
+                  key={brand}
+                  className="bg-black text-white rounded-full px-5 py-2 text-sm shadow"
+                >
+                  {brand}
+                </span>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        )}
+
       </div>
 
     </div>
 
-  );
+  </div>
+);
 
 }
